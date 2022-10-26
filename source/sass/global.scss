@@ -1,0 +1,95 @@
+html {
+  box-sizing: border-box;
+  height: 100%;
+  hyphens: auto;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;  // Если высота задана в процентах, то проценты берутся от высоты родительского контейнера(html => body => .wrapper). Если явно не задавать высоту родителям .wrapper браузер установит высоту этого блока в зависимости от высоты его содержимого. это необходимо для прижимания футера к низу страницы в тех случаях, когда высота контента не позволяет этого сделать//
+  font-size: 14px;
+  line-height: 1.71; //line-height 24px//
+  font-weight: 400;
+  background-color: transparent;
+  font-family: $main-font;
+  // overflow: hidden; //необходим, чтобы ничего не выпадало за пределы страницы//
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+p,
+blockquote {
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style-type: none;
+}
+
+button {
+  padding: 0;
+  border: none;
+  background-color: transparent;
+}
+
+fieldset {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+.wrapper {
+
+  padding: 0 10px;
+  margin: 0 auto;  //центрируем макет//
+
+  @include media(mobile) {
+    padding: 0 5px;
+  }
+}
+
+div {
+  img {
+    display: block;  //картинка становится блочным элементом//
+  }
+}
+
+button,
+input,
+textarea {
+  &:disabled {
+    color: $disabled-color;
+    background-color: $disabled-bg;
+  }
+}
+
+
+button,
+input,
+textarea,
+a,
+select,
+audio,
+video,
+object {
+  &:focus {
+    outline: $focus;
+  }
+}
